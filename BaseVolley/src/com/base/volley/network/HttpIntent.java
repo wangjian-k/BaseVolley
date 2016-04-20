@@ -1,5 +1,7 @@
 package com.base.volley.network;
 
+import java.util.HashMap;
+
 import android.content.Intent;
 
 import com.base.volley.Request;
@@ -32,7 +34,7 @@ public class HttpIntent extends Intent {
 
 	private Object parseObject;
 	
-	private Request<?> request;
+	private HashMap<String,String> header = new HashMap<String,String>();
 	
 	public static final String FILE_NAME = "file_name";
 
@@ -90,12 +92,12 @@ public class HttpIntent extends Intent {
 		return parseObject;
 	}
 
-	public Request<?> getRequest() {
-		return request;
+	public HashMap<String,String> getHeader() {
+		return header;
 	}
 
-	public void setRequest(Request<?> request) {
-		this.request = request;
+	public void setHeader(String key,String value) {
+		this.header.put(key, value);
 	}
 
 }
